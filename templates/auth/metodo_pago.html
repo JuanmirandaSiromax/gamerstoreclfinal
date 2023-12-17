@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+{% block css %}   
+{% endblock %}
+{% load static %}  
+
+{% block contenido %}
+
+<div class="titulo-novedades mt-5 mb-5">Método de Pago</div>
+<div class="container">
+    <div class="row text-center mb-4">
+        <div class="col d-flex flex-column align-items-center">
+            <form method="post" action="{% url 'venta_exitosa' %}">
+                {% csrf_token %}
+                <div class="gray-background">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col contenedor-pago">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="payment-options">
+                                            <div class="payment-option">
+                                                <input type="radio" id="credito" name="metodo_de_pago" value="credito">
+                                                <label for="credit-card">Tarjeta de Crédito</label>
+                                            </div>
+                                    
+                                            <div class="payment-option">
+                                                <input type="radio" id="debito" name="metodo_de_pago" value="debito">
+                                                <label for="paypal">Débito</label>
+                                            </div>
+                                    
+                                            <div class="payment-option">
+                                                <input type="radio" id="transferencia" name="metodo_de_pago" value="transferencia">
+                                                <label for="bank-transfer">Transferencia Bancaria</label>
+                                            </div>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-6 d-flex align-items-center">
+                                        <img src="{% static 'imagenes/web-pay-plus.png' %}" alt="webpay" class="img-fluid" style="max-width: 100%; height: auto;">
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="d-grid gap-2 col-4 mx-auto mt-5">
+                                    <a class="btn btn-warning" href="{% url 'home' %}" type="button">Volver</a>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="d-grid gap-2 col-4 mx-auto mt-5">
+                                    <button class="btn btn-primary" type="submit">Continuar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>       
+    </div>
+</div>
+
+
+
+
+
+
+
+{% endblock %}
